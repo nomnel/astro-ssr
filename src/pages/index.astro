@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
+const { env } = Astro.locals.runtime;
 ---
 
 <Layout title="Welcome to Astro.">
@@ -33,7 +35,9 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1>Secret value is: <span class="text-gradient">{env.SECRET_VALUE}</span></h1>
+		<h1>Env value is: <span class="text-gradient">{env.ENV_VALUE}</span></h1>
+		<h1>Current time is: <span class="text-gradient">{new Date()}</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
